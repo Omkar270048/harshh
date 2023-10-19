@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Fitness!</title>
+    <style>
+        body {
+            font-family: "Open Sans", sans-serif;
+            background: linear-gradient(300deg, rgb(31, 35, 35), rgb(94, 104, 104));
+            animation: gradient-animation 18s ease infinite;
+        }
+
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            margin-top: 2rem;
+            padding: 16px;
+            height: fit-content;
+            background-color: white;
+        }
+
+        b {
+            font-size: 18px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        .registerbtn {
+            background-color: rgb(0, 0, 0);
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+
+        a {
+            color: dodgerblue;
+        }
+
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div class="container">
+            <h1>Sign Up</h1>
+            <hr>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+
+            <!-- Remove the "psw-repeat" input field -->
+            <!-- <label for="psw-repeat"><b>Repeat Password</b></label>
+            <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required> -->
+
+            <hr>
+            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+            <button type="button" class="registerbtn" id="myBtn">Register</button>
+        </div>
+
+        <div class="container signin">
+            <p>Already have an account? <a href="./html/login.html"> Login</a>.</p>
+        </div>
+    </form>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase.js"></script>
+    <script>
+        // Initialize Firebase with your project config
+        var firebaseConfig = {
+            apiKey: "AIzaSyDbQbQsE-7rxgRTmczzuurJh4m9PIArxXw",
+            authDomain: "sleepick-5fcdc.firebaseapp.com",
+            projectId: "sleepick-5fcdc",
+            storageBucket: "sleepick-5fcdc.appspot.com",
+            messagingSenderId: "911241345165",
+            appId: "1:911241345165:web:19e42a9ee6ef0d37cd0ac4",
+            measurementId: "G-JF3VWTVX72"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Get a reference to the Firebase Authentication service
+        var auth = firebase.auth();
+
+      
+      // Function to register a user
+function registerUser() {
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("psw").value;
+
+    auth.createUserWithEmailAndPassword(email, password)
+        .then(function (userCredential) {
+            // Registration successful
+            console.log("User registered: " + userCredential.user.uid);
+            alert("registered pass")
+            window.open("../index.html", "_self");
+        })
+        .catch(function (error) {
+            // Registration failed
+            console.error("Registration failed: " + error.message);
+            alert("registered fail")
+
+        });
+}
+
+        // Attach the registerUser function to the button click event
+        document.getElementById("myBtn").addEventListener("click", registerUser);
+    </script>
+</body>
+
+</html>
