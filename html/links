@@ -1,1 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Monda&family=Tenor+Sans&display=swap");
+
+        body {
+            background-color: rgb(0, 0, 0);
+            font-family: "Monda", sans-serif;
+        }
+
+        .heading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: white;
+
+        }
+
+        @media(max-width:950px) {
+            .heading {
+                font-size: 1rem;
+            }
+        }
+
+        @media(max-width:450px) {
+            .heading {
+                font-size: 0.8rem;
+            }
+
+            .th {
+                font-size: 1rem;
+            }
+
+            .td {
+                font-size: 0.4rem;
+            }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 0.4px dotted #ddd;
+            color: rgb(255, 255, 255);
+        }
+
+        th {
+            font-size: 1.5rem;
+        }
+
+        tr {
+            margin: 4rem;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+
+        .table-section {
+            height: fit-content;
+            border: 3px solid rgb(255, 255, 255);
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="heading">
+        <h2>Welcome to the Project Section!</h2>
+    </div>
+    <div class="table-section">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Links</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Add more table rows as needed -->
+
+                <tr>
+                    <td data-label="Title">Sound Therapy</td>
+                    <td data-label="Description">Relax your mind and body with ASMR sounds, a soothing playlist that can calm anxiety, improve sleep, and enhance mindfulness.</td>
+                    <td data-label="Link" class="link">
+                        <a href="https://youtube.com/playlist?list=PLOPFwOd7eVcfTcEgZdEiTiWKXEjER6i5J&feature=shared" target=" _blank"
+                            style="text-decoration: none; color: white;">
+                            Link
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td data-label="Title">Rain Sound Therapy</td>
+                    <td data-label="Description">Relax and unwind with soothing rain sounds that calm your mind and enhance your well-being.</td>
+                    <td data-label="Link" class="link">
+                        <a href="https://youtube.com/playlist?list=PLOPFwOd7eVcesP4VAdKnbUpdE77WcZsfm&feature=shared"
+                            target=" _blank" style="text-decoration: none; color: white;">
+                            Link
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+    </div>
+</body>
+
+</html>
